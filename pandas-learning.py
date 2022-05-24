@@ -1,3 +1,5 @@
+import inline as inline
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
@@ -61,7 +63,12 @@ mean_age2 = df2[['age']].fillna(5).mean()  # replacing NaN with some int
 # dataframe file operation
 
 df4.to_csv('animal.csv')
-df4.to_excel('animal.xlsx', sheet_name='animal1')
-df6 = pd.read_excel('animal.xlsx', 'animal1', index_col=None, na_values=['NA'])
-df5 = pd.read_csv('animal.csv')
+#df4.to_excel('animal.xlsx', sheet_name='animal1')
+#df6 = pd.read_excel('animal.xlsx', 'animal1', index_col=None, na_values=['NA'])
+#df5 = pd.read_csv('animal.csv')
 #print(df5)
+
+#series and dataframe line chart
+ts = pd.Series(np.random.rand(50), index=pd.date_range('today', periods=50))
+ts.plot()
+plt.show()
