@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn import svm
 from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 
@@ -24,7 +24,7 @@ wine['quality'] = label_quality.fit_transform(wine['quality'],wine['quality'])
 #print(wine.head(10))
 print(wine['quality'].value_counts())
 sns.countplot(wine['quality'])
-plt.show()
+#plt.show()
 
 #seperate the dataset
 x = wine.drop('quality', axis=1)
@@ -39,21 +39,34 @@ X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
 #Randomforest classifier
+'''
 rfc = RandomForestClassifier(n_estimators=200)
 rfc.fit(X_train, y_train)
 pred_rfc = rfc.predict(X_test)
 
-'''
 #model performance
 print(classification_report(y_test, pred_rfc))
 print(confusion_matrix(y_test,pred_rfc))
 '''
 
 #svm classifier
-
+'''
 clf = svm.SVC()
 clf.fit(X_train, y_train)
 pred_clf = clf.predict(X_test)
 
 print(classification_report(y_test, pred_clf))
 print(confusion_matrix(y_test,pred_clf))
+'''
+
+#Multilayer percepreon classifier
+mlpc = MLPClassifier(hidden_layer_sizes=(11,11,11), max_iter=500)
+mlpc.fit(X_train,y_train)
+pred_mlpc = mlpc.predict(X_test)
+
+print(classification_report(y_test, pred_mlpc))
+print(confusion_matrix(y_test,pred_mlpc))
+
+
+cm = accuracy_score(y_test, pred_mlpc)
+print('accuracy is = ', cm*100, '%')
