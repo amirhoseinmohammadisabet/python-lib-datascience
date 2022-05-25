@@ -1,4 +1,11 @@
+import warnings
+import math
+import pandas as pd
 import tensorflow as tf
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+warnings.filterwarnings("ignore")
 
 A = tf.constant([[1, 2],
                  [3, 4]])
@@ -37,4 +44,3 @@ print(trp)
 
 row, col = trp.shape
 print('rows:', row, 'columns:', col)
-
