@@ -2,14 +2,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Heatmap means color map
-'''
+
 language = 'python', 'java', 'PHP', 'HTML', 'JavaScript', 'C++'
 popularity = [22.2, 17, 15.5, 8, 9, 3]
 colors = ["#1f77b4", "#ff7f0e", "#2ca02c","blue", "red", "green"]
 explode = (0.1, 0,0,0,0,0)
 plt.pie(popularity, explode= explode, labels=language, colors=colors, autopct='%1.1f%%',shadow=True, startangle=140)
 plt.show()
-'''
+
 
 # plot sinus
 """
@@ -116,7 +116,8 @@ ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
 plt.show()
 """
 
-
+# using image show
+"""
 # make data
 X, Y = np.meshgrid(np.linspace(-3, 3, 16), np.linspace(-3, 3, 16))
 Z = (1 - X/2 + X**5 + Y**3) * np.exp(-X**2 - Y**2)
@@ -126,3 +127,38 @@ fig, ax = plt.subplots()
 
 ax.imshow(Z)
 plt.show()
+"""
+
+# pie chart plot
+"""
+# make data
+x = [1, 2, 3, 4]
+colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, len(x)))
+
+# plot
+fig, ax = plt.subplots()
+ax.pie(x, colors=colors, radius=3, center=(4, 4),
+       wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+
+plt.show()
+"""
+
+# Histogram plot with random values
+"""
+# make data
+np.random.seed(1)
+x = 4 + np.random.normal(0, 1.5, 200)
+
+# plot:
+fig, ax = plt.subplots()
+
+ax.hist(x, bins=8, linewidth=0.5, edgecolor="white")
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 56), yticks=np.linspace(0, 56, 9))
+
+plt.show()
+"""
