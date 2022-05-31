@@ -7,9 +7,11 @@ import plotly.express as px
 from PIL import Image
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
+from skimage import io
 
-im = Image.open(r"Man.jpg")
-print(im)
-im.show()
+img = io.imread("Man.jpg", as_gray=True)
+
+print(img)
+img.show()
 
 
