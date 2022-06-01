@@ -32,7 +32,6 @@ abalone_model = tf.keras.Sequential([
 abalone_model.compile(loss = tf.keras.losses.MeanSquaredError(),
                       optimizer = tf.optimizers.Adam())
 
-
 abalone_model.fit(abalone_features, abalone_labels, epochs=20)
 
 normalize = layers.Normalization()
@@ -47,7 +46,5 @@ norm_abalone_model = tf.keras.Sequential([
 
 norm_abalone_model.compile(loss = tf.losses.MeanSquaredError(),
                            optimizer = tf.optimizers.Adam())
-
-
 
 norm_abalone_model.fit(abalone_features, abalone_labels, epochs=10)
