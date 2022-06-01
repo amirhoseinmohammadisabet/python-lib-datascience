@@ -119,8 +119,6 @@ history = model.fit(
   epochs=epochs
 )
 
-
-
 acc = history.history['accuracy']
 val_acc = history.history['val_accuracy']
 
