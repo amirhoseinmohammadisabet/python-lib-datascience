@@ -24,6 +24,7 @@ abalone_features = np.array(abalone_features)
 abalone_features
 
 
+
 abalone_model = tf.keras.Sequential([
   layers.Dense(64),
   layers.Dense(1)
