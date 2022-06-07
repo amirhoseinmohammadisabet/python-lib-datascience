@@ -1,15 +1,17 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from mpl_toolkits import mplot3d
+
 
 # Heatmap means color map
-
+"""
 language = 'python', 'java', 'PHP', 'HTML', 'JavaScript', 'C++'
 popularity = [22.2, 17, 15.5, 8, 9, 3]
 colors = ["#1f77b4", "#ff7f0e", "#2ca02c","blue", "red", "green"]
 explode = (0.1, 0,0,0,0,0)
 plt.pie(popularity, explode= explode, labels=language, colors=colors, autopct='%1.1f%%',shadow=True, startangle=140)
 plt.show()
-
+"""
 
 # plot sinus
 """
@@ -162,3 +164,23 @@ ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
 
 plt.show()
 """
+
+
+def f(x, y):
+    return np.sin(np.sqrt(x ** 2 + y ** 2))
+
+
+x = np.linspace(-6, 6, 30)
+y = np.linspace(-6, 6, 30)
+
+X, Y = np.meshgrid(x, y)
+Z = f(X, Y)
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+ax.contour3D(X, Y, Z, 50, cmap='binary')
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+ax.set_title('3D contour')
+plt.show()
