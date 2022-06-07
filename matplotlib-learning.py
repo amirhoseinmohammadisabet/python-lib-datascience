@@ -169,7 +169,7 @@ plt.show()
 def f(x, y):
     return np.sin(np.sqrt(x ** 2 + y ** 2))
 
-
+"""
 x = np.linspace(-6, 6, 30)
 y = np.linspace(-6, 6, 30)
 
@@ -184,3 +184,16 @@ ax.set_ylabel('y')
 ax.set_zlabel('z')
 ax.set_title('3D contour')
 plt.show()
+"""
+
+x = np.outer(np.linspace(-2, 2, 30), np.ones(30))
+y = x.copy().T # transpose
+z = np.cos(x ** 2 + y ** 2)
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+
+ax.plot_surface(x, y, z,cmap='viridis', edgecolor='none')
+ax.set_title('Surface plot')
+plt.show()
+
