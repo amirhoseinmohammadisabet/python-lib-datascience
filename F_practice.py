@@ -17,7 +17,7 @@ def integration(integrand, lower, upper, *args):
         counter = 0
         for looper in range(start, start + 3):
             counter += 1
-            if (counter == 1 or counter == 3):
+            if counter == 1 or counter == 3:
                 I += ((h / 3) * y[looper])
             else:
                 I += ((h / 3) * 4 * y[looper])
@@ -25,8 +25,8 @@ def integration(integrand, lower, upper, *args):
 
 
 def f(x, a, b):
-    return a * x * math.cos(x, b)
+    return a * pow(x, b)
 
 
-I = integration(f, 0, math.pi / 2, 1, 1)
+I = integration(f, 1, math.pi / 2, 1, 2)
 print(I)
